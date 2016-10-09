@@ -1,7 +1,10 @@
+<strong>USERS:</strong><br/>
 
-<% @users.each do |stuff| %>
-
-    <strong>Email: </strong><%= stuff.email %>
+<% @users.each do |user| %>
+    
+    
+    <strong>Username: </strong><%= user.user_name %><br/>
+    <strong>Email: </strong><%= user.email %><br/><br/>
 
 <% end %>
     
