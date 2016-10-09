@@ -16,7 +16,9 @@
         <li><%= link_to "Home", root_path %></li>
         
         <% if user_signed_in? %>
-          <li><a href="/<%= current_user.email %>">Your Tweets</a></li>
+          <li><%= link_to "Add Patient", new_patient_path %></li>
+          <li><%= link_to "Show Patients", patients_path %></li>
+          <li><%= link_to "My Patients", home_my_patients_path %></li>
           <li><%# link_to "Show All Tweets", tweets_path %></li>
           <li><%# link_to "New Tweet", new_tweet_path %></li>
           <li><%= link_to "Edit Profile", edit_user_registration_path %></li>

@@ -1,0 +1,21 @@
+
+<% if user_signed_in? %>
+    <% @my_patients.patient.each do |patient| %>
+    
+        <%= patient.first_name %> 
+        <%= patient.last_name %>
+        <%= patient.id %>
+        <%= link_to 'Show', patient_path(patient.id) %>
+        <%= link_to 'Edit', edit_patient_path(patient.id) %>
+        <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+        
+        <br/>
+        
+    
+    <% end %>
+
+<% else %>
+
+Must Be Signed In To View This Page...
+<% end %>
