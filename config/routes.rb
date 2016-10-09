@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'home/users'
   get 'home/index'
   get 'home/my_patients' => "home#my_patients"
+  get 'patients/:id/edit_all' => "patients#edit_all", as: 'patient_edit_all'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -15,13 +15,16 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
-    
-    
   end
 
   # GET /patients/1/edit
   def edit
   end
+  
+  def edit_all
+    @patient = Patient.find(params[:id])
+  end
+  
 
   # POST /patients
   # POST /patients.json
@@ -30,7 +33,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        format.html { redirect_to edit_patient_path(@patient.id)}#, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
@@ -38,13 +41,13 @@ class PatientsController < ApplicationController
       end
     end
   end
-
+# edit_patient_path(patient.id)
   # PATCH/PUT /patients/1
   # PATCH/PUT /patients/1.json
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
+        format.html { redirect_to edit_patient_path(@patient.id)}#@patient#, notice: 'Patient was successfully updated.' }
         format.json { render :show, status: :ok, location: @patient }
       else
         format.html { render :edit }

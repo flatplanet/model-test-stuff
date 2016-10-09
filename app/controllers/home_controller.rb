@@ -7,7 +7,10 @@ class HomeController < ApplicationController
   end
   
   def my_patients
-    @my_patients = User.find_by(id: current_user.id)
+    if user_signed_in?
+      @my_patients = User.find_by(id: current_user.id)
+    end
+    
     
       
   end

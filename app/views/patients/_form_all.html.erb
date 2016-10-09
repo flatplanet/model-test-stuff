@@ -12,7 +12,6 @@
     </div>
   <% end %>
 
-  <% if !@patient.first_name? %>  
     <div class="field">
       <%= f.label :first_name %><br>
       <%= f.text_field :first_name %>
@@ -20,37 +19,37 @@
   
     
   
-  <% elsif !@patient.last_name? %>
+
     <div class="field">
       <%= f.label :last_name %><br>
       <%= f.text_field :last_name %>
     </div>
   
-  <% elsif !@patient.age? %>
+
     <div class="field">
       <%= f.label :age %><br>
       <%= f.number_field :age %>
     </div>
   
-  <% elsif !@patient.address? %>      
+
     <div class="field">
       <%= f.label :address %><br>
       <%= f.text_field :address %>
     </div>
     
-  <% elsif !@patient.weight? %>  
+
     <div class="field">
       <%= f.label :weight %><br>
       <%= f.text_field :weight %>
     </div>
     
-  <% elsif !@patient.gender? %>  
+
     <div class="field">
       <%= f.label :gender %><br>
       <%= f.text_field :gender %>
     </div>
   
-  <% end %>
+
   
   <% if user_signed_in? %>
     <%= f.hidden_field :user_id, value: current_user.id %>
