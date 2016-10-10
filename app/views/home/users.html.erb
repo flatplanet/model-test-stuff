@@ -1,10 +1,39 @@
-<strong>USERS:</strong><br/>
+<h2>Users</h2>
 
 <% @users.each do |user| %>
-    
-    
-    <strong>Username: </strong><%= user.user_name %><br/>
-    <strong>Email: </strong><%= user.email %><br/><br/>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+        <th colspan="3"><h4>
+           Username: <%= user.user_name %> - <%= user.email %> 
+        </h4></th>
+    </tr>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
+  <tbody>    
+    
+    
+    
+    <% user.patient.each do |patient| %>
+        <tr>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %> </td>
+        <td>
+            <%= link_to 'Show', patient %>
+            <%= link_to 'Edit', edit_patient_path(patient) %>
+            <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+    <% end %>
+    </tr>
+    
+<br/><br/>
 <% end %>
+    </tbody>
+</table>
+
     
