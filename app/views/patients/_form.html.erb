@@ -13,42 +13,34 @@
   <% end %>
 <div class="speech">
   <% if !@patient.first_name? %>  
-    <div class="form-group">
       <% f.label :first_name %><% content_for :speaker, "First Name" %>
-      <%= f.text_field :first_name, class: 'form-control', id: 'transcript', placeholder: "First Name" %>
-    </div>
-  
+      <%= f.text_field :first_name, id: 'transcript', placeholder: " First Name" %>
+    
     
   
   <% elsif !@patient.last_name? %>
-    <div class="form-group">
       <% f.label :last_name %><% content_for :speaker, "Last Name" %>
-      <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
-    </div>
+      <%= f.text_field :last_name, id: 'transcript', placeholder: " Last Name" %>
+    
   
   <% elsif !@patient.age? %>
-    <div class="form-group">
       <% f.label :age %><% content_for :speaker, "Age" %>
-      <%= f.number_field :age, class: 'form-control', placeholder: "Age" %>
-    </div>
+      <%= f.number_field :age, class: 'form-control', id: 'transcript', placeholder: " Age" %>
+    
   
   <% elsif !@patient.address? %>      
-    <div class="form-group">
       <% f.label :address %><% content_for :speaker, "Address" %>
-      <%= f.text_field :address, class: 'form-control', id: 'transcript', placeholder: "Address" %>
-    </div>
+      <%= f.text_field :address, class: 'form-control', id: 'transcript', placeholder: " Address" %>
     
   <% elsif !@patient.weight? %>  
-    <div class="form-group">
       <% f.label :weight %><% content_for :speaker, "Weight in Pounds" %>
-      <%= f.text_field :weight, class: 'form-control', placeholder: "Weight" %>
-    </div>
+      <%= f.text_field :weight, class: 'form-control', id: 'transcript', placeholder: " Weight" %>
+    
     
   <% elsif !@patient.gender? %>  
-    <div class="form-group">
       <% f.label :gender %><% content_for :speaker, "Gender" %>
-      <%= f.text_field :gender, class: 'form-control', placeholder: "Gender" %>
-    </div>
+      <%= f.text_field :gender, class: 'form-control', id: 'transcript', placeholder: " Gender" %>
+    
   
   <% end %>
   
