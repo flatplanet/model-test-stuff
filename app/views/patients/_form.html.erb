@@ -1,5 +1,5 @@
 
-<%= form_for(@patient) do |f| %>
+<%= form_for(@patient, html: {id: 'labnol'}) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -11,43 +11,43 @@
       </ul>
     </div>
   <% end %>
-
+<div class="speech">
   <% if !@patient.first_name? %>  
     <div class="form-group">
-      <% f.label :first_name %><br>
-      <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %>
+      <% f.label :first_name %><% content_for :speaker, "First Name" %>
+      <%= f.text_field :first_name, class: 'form-control', id: 'transcript', placeholder: "First Name" %>
     </div>
   
     
   
   <% elsif !@patient.last_name? %>
     <div class="form-group">
-      <% f.label :last_name %><br>
-      <%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder: "Last Name" %>
+      <% f.label :last_name %><% content_for :speaker, "Last Name" %>
+      <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
     </div>
   
   <% elsif !@patient.age? %>
     <div class="form-group">
-      <% f.label :age %><br>
-      <%= f.number_field :age, autofocus: true, class: 'form-control', placeholder: "Age" %>
+      <% f.label :age %><% content_for :speaker, "Age" %>
+      <%= f.number_field :age, class: 'form-control', placeholder: "Age" %>
     </div>
   
   <% elsif !@patient.address? %>      
     <div class="form-group">
-      <% f.label :address %><br>
-      <%= f.text_field :address, autofocus: true, class: 'form-control', placeholder: "Address" %>
+      <% f.label :address %><% content_for :speaker, "Address" %>
+      <%= f.text_field :address, class: 'form-control', id: 'transcript', placeholder: "Address" %>
     </div>
     
   <% elsif !@patient.weight? %>  
     <div class="form-group">
-      <%= f.label :weight %><br>
-      <%= f.text_field :weight, autofocus: true, class: 'form-control', placeholder: "Weight" %>
+      <% f.label :weight %><% content_for :speaker, "Weight in Pounds" %>
+      <%= f.text_field :weight, class: 'form-control', placeholder: "Weight" %>
     </div>
     
   <% elsif !@patient.gender? %>  
     <div class="form-group">
-      <%= f.label :gender %><br>
-      <%= f.text_field :gender, autofocus: true, class: 'form-control', placeholder: "Gender" %>
+      <% f.label :gender %><% content_for :speaker, "Gender" %>
+      <%= f.text_field :gender, class: 'form-control', placeholder: "Gender" %>
     </div>
   
   <% end %>
@@ -56,7 +56,12 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
   <% end %>
   
+  <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+    </div>
+    <br/><br/>
   <div class="actions">
     <%= f.submit "Save", class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%= render 'home/voice_stuff' %>
