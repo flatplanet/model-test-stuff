@@ -27,10 +27,10 @@
         <td><%= patient.weight %></td>
         <td><%= patient.gender %></td>
         <td><%= patient.user.user_name %></td>
-        <td><%= link_to 'Show', patient %> | 
-        <%= link_to 'Edit', edit_patient_path(patient) %> | 
-        <%= link_to 'Edit All', patient_edit_all_path(patient.id) %> | 
-        <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', patient, class: 'btn btn-default btn-xs' %>
+        <%= link_to 'Edit', edit_patient_path(patient), class: 'btn btn-default btn-xs' %>
+        <%= link_to 'Edit All', patient_edit_all_path(patient.id), class: 'btn btn-default btn-xs' %>
+        <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
