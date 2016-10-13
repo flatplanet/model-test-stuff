@@ -1,4 +1,4 @@
-<h2>Users</h2>
+<h2>Users With Patients</h2>
 
 <% @users.each do |user| %>
 <table class="table table-striped table-bordered table-hover">
@@ -25,6 +25,7 @@
         <td>
             <%= link_to 'Show', patient, class: 'btn btn-default btn-xs' %>
             <%= link_to 'Edit', edit_patient_path(patient), class: 'btn btn-info btn-xs' %>
+            <%= link_to 'Edit All', patient_edit_all_path(patient.id), class: 'btn btn-success btn-xs' %>
             <%= link_to 'Delete Patient', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
         
     <% end %>
